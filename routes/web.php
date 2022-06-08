@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,9 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::group(['middleware' => 'checkRole:admin'], function() {
-        Route::get('/dashboard', function() {
-            return view('admin.dashboard');
+        Route::get('/dashboard', [AdminController::class, 'home'])->name('admin.dashboard');
+        Route::group(['prefix' => 'users'], function() {
+            Route::get('/{role}', [AdminController::class, 'users'])->name('users.all');
         });
     });
 });
@@ -42,9 +44,5 @@ Route::group(['middleware' => 'auth'], function() {
         });
     });
 });
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
