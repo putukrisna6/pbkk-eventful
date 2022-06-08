@@ -24,11 +24,9 @@
   127.0.0.1 eventful.llc
   ```
 
-### Database
-* TBA
-
-### Mailing
-* TBA
-
-## Local Deployment
-* TBA
+### Laravel Breeze
+* `php artisan breeze:install`
+* `npm install`
+* `npm run dev`
+* `php artisan migrate --seed`
+* Password default bagi user adalah '12345678'
