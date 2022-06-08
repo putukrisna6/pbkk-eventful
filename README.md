@@ -1,5 +1,10 @@
 # pbkk-eventful
 
+## Tech Stacks
+Built with
+* Laravel 9
+* Tailwind CSS
+
 ## Branch Nomenclature
 ### Protected Branches
 * `master`, main branch—all feature and hotfix branches should PR to here
