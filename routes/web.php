@@ -18,6 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix' => 'test'], function() {
+    Route::get('/', function() {
+        return view('admin.dashboard');
+    });
+});
+
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/redirectAuthenticatedUsers', [RedirectAuthenticatedUsersController::class, 'home']);
 
