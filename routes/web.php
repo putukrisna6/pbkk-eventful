@@ -18,9 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'test'], function() {
-    Route::get('/', function() {
-        return view('admin.dashboard');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::group(['middleware' => 'checkRole:admin'], function() {
+        Route::get('/dashboard', function() {
+            return view('admin.dashboard');
+        });
     });
 });
 
@@ -28,11 +30,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/redirectAuthenticatedUsers', [RedirectAuthenticatedUsersController::class, 'home']);
 
     Route::group(['prefix' => 'dashboard'], function() {
-        Route::group(['middleware' => 'checkRole:admin'], function() {
-            Route::get('/admin', function() {
-                return 'hai admin';
-            });
-        });
         Route::group(['middleware' => 'checkRole:tenant'], function() {
             Route::get('/tenant', function() {
                 return 'hai event organizer';
