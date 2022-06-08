@@ -7,7 +7,7 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
-    public function home() {
+    public function dashboard() {
         return view('admin.dashboard');
     }
 

@@ -16,7 +16,7 @@ class RedirectAuthenticatedUsersController extends Controller
             return redirect('/dashboard/tenant');
         }
         else if(auth()->user()->role == 'owner') {
-            return redirect('/dashboard/owner');
+            return redirect('/owner/dashboard');
         }
         else {
             return auth()->logout();
