@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('building_id');
             $table->foreignId('user_id');
-            $table->foreignId('building_id');
             $table->string('total_price');
             $table->datetime('order_date');
             $table->timestamps();
