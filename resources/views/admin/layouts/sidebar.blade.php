@@ -33,7 +33,13 @@
             <li>
                 <a href="#" class="">
                     <span class="icon"><i class="mdi mdi-view-list"></i></span>
-                    <span class="menu-item-label">List</span>
+                    <span class="menu-item-label">Building List</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('types.index') }}" class="">
+                    <span class="icon"><i class="mdi mdi-view-list"></i></span>
+                    <span class="menu-item-label">Building Types</span>
                 </a>
             </li>
             <li>
