@@ -79,9 +79,9 @@
 <script>
     $(document).ready(function() {
       $('table').DataTable({
-        // columnDefs: [
-        //     { orderable: false, targets: [4] }
-        // ],
+        columnDefs: [
+            { orderable: false, targets: [0, 6] }
+        ],
         order: [[1, 'asc']]
       });
       $('.dataTables_length').addClass('bs-select');
