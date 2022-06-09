@@ -1,7 +1,7 @@
 <aside class="aside is-placed-left is-expanded">
     <div class="aside-tools">
         <div>
-            <b class="font-black">Eventful</b> | Admin
+            <b class="font-black">Eventful</b> | Administrator
         </div>
     </div>
     <div class="menu is-menu-main">

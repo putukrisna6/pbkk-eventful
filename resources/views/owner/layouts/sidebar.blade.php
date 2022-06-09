@@ -1,7 +1,7 @@
 <aside class="aside is-placed-left is-expanded">
     <div class="aside-tools">
         <div>
-            <b class="font-black">Eventful</b> | Owner
+            <b class="font-black">Eventful</b> | Building Owner
         </div>
     </div>
     <div class="menu is-menu-main">
