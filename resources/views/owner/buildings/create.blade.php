@@ -36,7 +36,18 @@
                                     <span class="icon left"><i class="mdi mdi-text"></i></span>
                                 </div>
                             </div>
-
+                            <div class="field">
+                                <div class="control icons-left">
+                                    <select class="input" id="type_id" name="type_id" :value="old('type_id')" required
+                                        autofocus type="text">
+                                        <option  value="">Select Building Type</option>
+                                        @foreach ($types as $type)
+                                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <span class="icon left"><i class="mdi mdi-domain"></i></span>
+                                </div>
+                            </div>
                             <div class="field">
                                 <div class="control icons-left">
                                     <input class="input" id="phone" name="phone" :value="old('phone')" required

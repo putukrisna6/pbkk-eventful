@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Building;
+use App\Models\Type;
+use App\Models\BuildingType;
 
 class BuildingsController extends Controller
 {
@@ -14,7 +16,8 @@ class BuildingsController extends Controller
     }
 
     public function create() {
-        return view('owner.buildings.create');
+        $types = Type::all();
+        return view('owner.buildings.create', compact('types'));
     }
 
     public function store(Request $request) {
@@ -26,6 +29,7 @@ class BuildingsController extends Controller
             'latitude' => ['required'],
             'longitude' => ['required'],
             'image' => ['required', 'image'],
+            'type_id' => ['required', 'exists:types,id'],
         ]);
 
         $building = new Building;
@@ -40,6 +44,14 @@ class BuildingsController extends Controller
         $building->user_id = Auth::user()->id;
 
         $building->save();
+
+        $buildingType = new BuildingType;
+
+        $buildingType->building_id = $building->id;
+        $buildingType->type_id = $request->type_id;
+
+        $buildingType->save();
+
         session()->flash('success', 'Building created successfully.');
         return redirect()->route('buildings.index');
     }
