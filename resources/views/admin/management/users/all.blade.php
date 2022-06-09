@@ -11,7 +11,6 @@
             <h1 class="title">
                 {{ $role }} Management
             </h1>
-            <button class="button light">Button</button>
         </div>
     </section>
 
@@ -22,9 +21,6 @@
                     <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
                     Users
                 </p>
-                <a href="#" class="card-header-icon">
-                    <span class="icon"><i class="mdi mdi-reload"></i></span>
-                </a>
             </header>
             <div class="card-content">
                 <table class="table">
