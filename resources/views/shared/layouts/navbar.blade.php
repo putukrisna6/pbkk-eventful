@@ -4,7 +4,7 @@
             <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
         </a>
         <div class="navbar-item">
-            <div class="control"><input placeholder="Search everywhere..." class="input"></div>
+            <img src="{{ asset('img/icons.png') }}" alt="ikon" class="h-10 w-10">
         </div>
     </div>
     <div class="navbar-brand is-right">
