@@ -29,70 +29,69 @@
         <div class="card-content">
             <form method="get">
             <div class="field">
-                <label class="label">From</label>
+                <!-- <label class="label">From</label> -->
                 <div class="field-body">
-                <div class="field">
-                    <div class="control icons-left">
-                    <input class="input" type="text" placeholder="Name">
-                    <span class="icon left"><i class="mdi mdi-account"></i></span>
+                    <div class="field">
+                        <div class="control icons-left">
+                            <input class="input" type="text" placeholder="Nama Gedung">
+                            <span class="icon left"><i class="mdi mdi-account"></i></span>
+                        </div>
                     </div>
-                </div>
-                <div class="field">
-                    <div class="control icons-left icons-right">
-                    <input class="input" type="email" placeholder="Email" value="alex@smith.com">
-                    <span class="icon left"><i class="mdi mdi-mail"></i></span>
-                    <span class="icon right"><i class="mdi mdi-check"></i></span>
+                    <div class="field">
+                        <div class="control">
+                            <textarea class="textarea" placeholder="Deskripsi Gedung"></textarea>
+                        </div>
                     </div>
-                </div>
-                </div>
-            </div>
-            <div class="field">
-                <div class="field-body">
-                <div class="field">
-                    <div class="field addons">
-                    <div class="control">
-                        <input class="input" value="+44" size="3" readonly>
+                    <div class="field">
+                        <div class="control icons-left">
+                            <input class="input" type="text" placeholder="Alamat Gedung">
+                            <span class="icon left"><i class="mdi mdi-account"></i></span>
+                        </div>
                     </div>
-                    <div class="control expanded">
-                        <input class="input" type="tel" placeholder="Your phone number">
+                    <div class="field">
+                        <div class="control icons-left icons-right">
+                        <input class="input" type="email" placeholder="Email" value="alex@smith.com">
+                        <span class="icon left"><i class="mdi mdi-mail"></i></span>
+                        <!-- <span class="icon right"><i class="mdi mdi-check"></i></span> -->
+                        </div>
                     </div>
+                    <div class="field">
+                        <div class="field-body">
+                        <div class="field">
+                            <div class="field addons">
+                            <div class="control">
+                                <input class="input" value="+62" size="3" readonly>
+                            </div>
+                            <div class="control expanded">
+                                <input class="input" type="tel" placeholder="Your phone number">
+                            </div>
+                            </div>
+                            <p class="help">Do not enter the first zero</p>
+                        </div>
+                        </div>
                     </div>
-                    <p class="help">Do not enter the first zero</p>
-                </div>
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Department</label>
-                <div class="control">
-                <div class="select">
-                    <select>
-                    <option>Business development</option>
-                    <option>Marketing</option>
-                    <option>Sales</option>
-                    </select>
-                </div>
+                    <div class="field">
+                        <label class="label">File Gambar Gedung</label>
+                            <div class="field-body">
+                                <div class="field file">
+                                    <label class="upload control">
+                                        <a class="button blue">
+                                        Upload
+                                        </a>
+                                        <input type="file">
+                                    </label>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Lokasi Gedung</label>
+                            <div class="field-body">
+                                <!-- TEMPAT GOOGLE MAPS -->
+                            </div>
+                    </div>
                 </div>
             </div>
             <hr>
-            <div class="field">
-                <label class="label">Subject</label>
-
-                <div class="control">
-                <input class="input" type="text" placeholder="e.g. Partnership opportunity">
-                </div>
-                <p class="help">
-                This field is required
-                </p>
-            </div>
-
-            <div class="field">
-                <label class="label">Question</label>
-                <div class="control">
-                <textarea class="textarea" placeholder="Explain how we can help you"></textarea>
-                </div>
-            </div>
-            <hr>
-
             <div class="field grouped">
                 <div class="control">
                 <button type="submit" class="button green">
