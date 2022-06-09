@@ -34,9 +34,6 @@ Route::group(['prefix' => 'owner', 'middleware' => 'auth'], function() {
     Route::group(['middleware' => 'checkRole:owner'], function() {
         Route::get('/dashboard', [OwnerController::class, 'dashboard'])->name('owner.dashboard');
         Route::resource('buildings', BuildingsController::class);
-        // Route::group(['prefix' => 'users'], function() {
-        //     Route::get('/{role}', [AdminController::class, 'users'])->name('users.all');
-        // });
     });
 });
 
