@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\BuildingsController;
+use App\Http\Controllers\TypesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         Route::group(['prefix' => 'users'], function() {
             Route::get('/{role}', [AdminController::class, 'users'])->name('users.all');
         });
+        Route::resource('types', TypesController::class);
     });
 });
 
