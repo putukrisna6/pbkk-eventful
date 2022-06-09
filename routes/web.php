@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OwnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +20,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::group(['middleware' => 'checkRole:admin'], function() {
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+        Route::group(['prefix' => 'users'], function() {
+            Route::get('/{role}', [AdminController::class, 'users'])->name('users.all');
+        });
+    });
+});
+
+Route::group(['prefix' => 'owner', 'middleware' => 'auth'], function() {
+    Route::group(['middleware' => 'checkRole:owner'], function() {
+        Route::get('/dashboard', [OwnerController::class, 'dashboard'])->name('owner.dashboard');
+        // Route::get('/dashboard', [AdminController::class, 'home'])->name('owner.dashboard');
+        // Route::group(['prefix' => 'users'], function() {
+        //     Route::get('/{role}', [AdminController::class, 'users'])->name('users.all');
+        // });
+    });
+});
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/redirectAuthenticatedUsers', [RedirectAuthenticatedUsersController::class, 'home']);
+});
 
 require __DIR__.'/auth.php';
