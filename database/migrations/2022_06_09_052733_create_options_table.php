@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('options', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('building_id');
             $table->string('name');
             $table->text('desc');
             $table->string('price');
