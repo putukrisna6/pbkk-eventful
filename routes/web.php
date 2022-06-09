@@ -17,7 +17,7 @@ use App\Http\Controllers\OwnerController;
 */
 
 Route::get('/', function () {
-    return view('catalogue');
+    return view('welcome');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
