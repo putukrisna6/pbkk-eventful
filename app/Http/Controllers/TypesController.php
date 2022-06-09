@@ -11,4 +11,41 @@ class TypesController extends Controller
         $types = Type::all();
         return view('admin.management.types.index', compact('types'));
     }
+
+    public function create() {
+        return view('admin.management.types.create');
+    }
+
+    public function store(Request $request) {
+        try {
+            $request->validate([
+                'name' => ['required', 'string', 'max:255', 'unique:types'],
+                'image' => ['required', 'image'],
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            $message = '';
+            foreach ($e->errors() as $key => $error) {
+                $message = $message . $key . ': ' . $error[0];
+            }
+
+            session()->flash('error', $message);
+            return redirect()->route('types.index');
+        }
+
+        $type = new Type;
+
+        $type->name = $request->name;
+        $type->image = base64_encode(file_get_contents($request->file('image')->path()));
+
+        $type->save();
+        session()->flash('success', 'Type created successfully.');
+        return redirect()->route('types.index');
+    }
+
+    public function destroy($id) {
+        $type = Type::find($id);
+        $type->delete();
+        session()->flash('success', 'Type deleted successfully.');
+        return redirect()->route('types.index');
+    }
 }

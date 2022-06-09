@@ -1,10 +1,10 @@
-@extends('owner.layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
     <section class="is-hero-bar">
         <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
             <h1 class="title">
-                Add Building
+                Add Type
             </h1>
         </div>
     </section>
@@ -18,66 +18,20 @@
                 </p>
             </header>
             <div class="card-content">
-                <form method="POST" action="{{ route('buildings.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('types.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="field">
                         <div class="field-body">
                             <div class="field">
                                 <div class="control icons-left">
                                     <input class="input" id="name" name="name" :value="old('email')" required
-                                        autofocus type="text" placeholder="Building Name">
+                                        autofocus type="text" placeholder="Type Name">
                                     <span class="icon left"><i class="mdi mdi-domain"></i></span>
                                 </div>
                             </div>
-                            <div class="field">
-                                <div class="control icons-left">
-                                    <textarea class="textarea" style="padding-left: 2.5rem" id="text" name="text" :value="old('text')" required
-                                        placeholder="Building Description"></textarea>
-                                    <span class="icon left"><i class="mdi mdi-text"></i></span>
-                                </div>
-                            </div>
 
                             <div class="field">
-                                <div class="control icons-left">
-                                    <input class="input" id="phone" name="phone" :value="old('phone')" required
-                                        type="text" placeholder="Phone Number">
-                                    <span class="icon left"><i class="mdi mdi-phone"></i></span>
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <div class="control icons-left">
-                                    <input class="input" type="text" id="address" name="address" :value="old('address')" required placeholder="Address">
-                                    <span class="icon left"><i class="mdi mdi-city"></i></span>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="label">Building Coordinates</label>
-                            </div>
-                            <div class="field grouped">
-                                <div class="control icons-left">
-                                    <input class="input" name="latitude" id="latitude" placeholder="Latitude"
-                                        required type="text" value="-6.232393">
-                                    <span class="icon left"><i class="mdi mdi-map-marker"></i></span>
-                                </div>
-                                <div class="control icons-left">
-                                    <input class="input" name="longitude" id="longitude" placeholder="Longitude"
-                                        required type="text" value="106.820287">
-                                    <span class="icon left"><i class="mdi mdi-map-marker"></i></span>
-                                </div>
-                                <div class="control">
-                                    <button type="button" onclick="initMap()" class="button light">
-                                        Locate
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <div class="field-body">
-                                    <div id="map" style="height: 500px"></div>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="label">Building Image</label>
+                                <label class="label">Type Image</label>
                                 <div class="field-body">
                                     <div class="field file">
                                         <label class="upload control">
