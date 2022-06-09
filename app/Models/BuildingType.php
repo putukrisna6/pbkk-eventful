@@ -18,4 +18,12 @@ class BuildingType extends Model
         'building_id',
         'type_id'
     ];
+
+    public function building() {
+        return $this->belongsTo(Building::class);
+    }
+
+    public function type() {
+        return $this->belongsTo(Type::class);
+    }
 }

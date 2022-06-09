@@ -20,4 +20,8 @@ class Order extends Model
         'total_price',
         'order_date'
     ];
+
+    public function building() {
+        return $this->belongsTo(Building::class);
+    }
 }
