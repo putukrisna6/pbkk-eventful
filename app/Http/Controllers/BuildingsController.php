@@ -9,8 +9,8 @@ use App\Models\Building;
 class BuildingsController extends Controller
 {
     public function index() {
-        $building = Building::all();
-        return view('owner.buildings.index', compact('building'));
+        $buildings = Building::where('user_id', Auth::id())->get();
+        return view('owner.buildings.index', compact('buildings'));
     }
 
     public function create() {
@@ -28,19 +28,18 @@ class BuildingsController extends Controller
             'image' => ['required', 'image'],
         ]);
 
-        $data = [
-            'name' => $request->name,
-            'text' => $request->text,
-            'address' => $request->address,
-            'phone' => $request->phone,
-            'latitude' => $request->latitude,
-            'longitude' => $request->longitude,
-            'image' => base64_encode(file_get_contents($request->file('image')->path())),
-            'user_id' => Auth::user()->id,
-        ];
-
         $building = new Building;
-        $building->insert($data);
+
+        $building->name = $request->name;
+        $building->text = $request->text;
+        $building->address = $request->address;
+        $building->phone = $request->phone;
+        $building->latitude = $request->latitude;
+        $building->longitude = $request->longitude;
+        $building->image = base64_encode(file_get_contents($request->file('image')->path()));
+        $building->user_id = Auth::user()->id;
+
+        $building->save();
 
         return redirect()->route('buildings.index');
     }
