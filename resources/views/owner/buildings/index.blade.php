@@ -1,19 +1,17 @@
 @extends('owner.layouts.app')
 
-@section('content')
-    <section class="is-title-bar">
-    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-            <ul>
-                <li>Buildings</li>
-            </ul>
-    </div>
-    </section>
+@section('styles')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+@endsection
 
+@section('content')
     <section class="is-hero-bar">
     <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
         <h1 class="title">
-        List Buildings
+            Buildings List
         </h1>
+        <a href="{{ route('buildings.create') }}" class="button green"><span class="icon"><i class="mdi mdi-plus"></i></span>Add</a>
     </div>
     </section>
 
@@ -22,39 +20,24 @@
       <header class="card-header">
         <p class="card-header-title">
           <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
-          Building
+          Buildings
         </p>
-        <a href="#" class="card-header-icon">
-          <span class="icon"><i class="mdi mdi-reload"></i></span>
-        </a>
       </header>
       <div class="card-content">
-        <table>
+        <table class="table">
           <thead>
           <tr>
-            <th class="checkbox-cell">
-              <label class="checkbox">
-                <input type="checkbox">
-                <span class="check"></span>
-              </label>
-            </th>
             <th class="image-cell"></th>
             <th>Name</th>
             <th>Company</th>
             <th>City</th>
             <th>Progress</th>
             <th>Created</th>
-            <th></th>
+            <th>Action</th>
           </tr>
           </thead>
           <tbody>
           <tr>
-            <td class="checkbox-cell">
-              <label class="checkbox">
-                <input type="checkbox">
-                <span class="check"></span>
-              </label>
-            </td>
             <td class="image-cell">
               <div class="image">
                 <img src="https://avatars.dicebear.com/v2/initials/ryley-wuckert.svg" class="rounded-full">
@@ -74,9 +57,6 @@
                 <button class="button small blue --jb-modal"  data-target="sample-modal-2" type="button">
                   <span class="icon"><i class="mdi mdi-eye"></i></span>
                 </button>
-                <button class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
-                  <span class="icon"><i class="mdi mdi-plus"></i></span>
-                </button>
                 <button class="button small red --jb-modal" data-target="sample-modal" type="button">
                   <span class="icon"><i class="mdi mdi-trash-can"></i></span>
                 </button>
@@ -84,12 +64,6 @@
             </td>
           </tr>
           <tr>
-            <td class="checkbox-cell">
-              <label class="checkbox">
-                <input type="checkbox">
-                <span class="check"></span>
-              </label>
-            </td>
             <td class="image-cell">
               <div class="image">
                 <img src="https://avatars.dicebear.com/v2/initials/sienna-hayes.svg" class="rounded-full">
@@ -109,9 +83,6 @@
                 <button class="button small blue --jb-modal"  data-target="sample-modal-2" type="button">
                   <span class="icon"><i class="mdi mdi-eye"></i></span>
                 </button>
-                <button  class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
-                  <span class="icon"><i class="mdi mdi-plus"></i></span>
-                </button>
                 <button class="button small red --jb-modal" data-target="sample-modal" type="button">
                   <span class="icon"><i class="mdi mdi-trash-can"></i></span>
                 </button>
@@ -120,21 +91,24 @@
           </tr>
           </tbody>
         </table>
-        <div class="table-pagination">
-          <div class="flex items-center justify-between">
-            <div class="buttons">
-              <button type="button" class="button active">1</button>
-              <button type="button" class="button">2</button>
-              <button type="button" class="button">3</button>
-            </div>
-            <small>Page 1 of 3</small>
-          </div>
-        </div>
       </div>
     </div>
-    </section> 
+    </section>
 @endsection
 
 @section('scripts')
-<script type="text/javascript" src="{{ asset('asset/js/chart.sample.min.js') }}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ asset('asset/js/datatables.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('asset/js/jquery.rowspanizer.min.js') }}"></script>
+<script>
+    $(document).ready(function() {
+      $('table').DataTable({
+        columnDefs: [
+            { orderable: false, targets: [0, 6] }
+        ],
+        order: [[1, 'asc']]
+      });
+      $('.dataTables_length').addClass('bs-select');
+    });
+  </script>
 @endsection
