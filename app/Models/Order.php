@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Options extends Model
+class Order extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,9 @@ class Options extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'image'
+        'building_id',
+        'user_id',
+        'total_price',
+        'order_date'
     ];
 }

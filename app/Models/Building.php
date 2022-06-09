@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BuilidingTypes extends Model
+class Building extends Model
 {
     use HasFactory;
     
@@ -15,7 +15,12 @@ class BuilidingTypes extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'building_id',
-        'type_id'
+        'name',
+        'desc',
+        'address',
+        'phone_number',
+        'image',
+        'latitude',
+        'longitude'
     ];
 }
