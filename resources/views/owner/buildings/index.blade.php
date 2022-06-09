@@ -29,66 +29,42 @@
           <tr>
             <th class="image-cell"></th>
             <th>Name</th>
-            <th>Company</th>
-            <th>City</th>
-            <th>Progress</th>
+            <th>Phone</th>
+            <th>Address</th>
             <th>Created</th>
+            <th>Updated</th>
             <th>Action</th>
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td class="image-cell">
-              <div class="image">
-                <img src="https://avatars.dicebear.com/v2/initials/ryley-wuckert.svg" class="rounded-full">
-              </div>
-            </td>
-            <td data-label="Name">Ryley Wuckert</td>
-            <td data-label="Company">Heller-Little</td>
-            <td data-label="City">Emeraldtown</td>
-            <td data-label="Progress" class="progress-cell">
-              <progress max="100" value="54">54</progress>
-            </td>
-            <td data-label="Created">
-              <small class="text-gray-500" title="Jun 28, 2021">Jun 28, 2021</small>
-            </td>
-            <td class="actions-cell">
-              <div class="buttons right nowrap">
-                <button class="button small blue --jb-modal"  data-target="sample-modal-2" type="button">
-                  <span class="icon"><i class="mdi mdi-eye"></i></span>
-                </button>
-                <button class="button small red --jb-modal" data-target="sample-modal" type="button">
-                  <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                </button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="image-cell">
-              <div class="image">
-                <img src="https://avatars.dicebear.com/v2/initials/sienna-hayes.svg" class="rounded-full">
-              </div>
-            </td>
-            <td data-label="Name">Sienna Hayes</td>
-            <td data-label="Company">Conn, Jerde and Douglas</td>
-            <td data-label="City">Jonathanfort</td>
-            <td data-label="Progress" class="progress-cell">
-              <progress max="100" value="55">55</progress>
-            </td>
-            <td data-label="Created">
-              <small class="text-gray-500" title="Mar 7, 2021">Mar 7, 2021</small>
-            </td>
-            <td class="actions-cell">
-              <div class="buttons right nowrap">
-                <button class="button small blue --jb-modal"  data-target="sample-modal-2" type="button">
-                  <span class="icon"><i class="mdi mdi-eye"></i></span>
-                </button>
-                <button class="button small red --jb-modal" data-target="sample-modal" type="button">
-                  <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                </button>
-              </div>
-            </td>
-          </tr>
+            @foreach ($buildings as $building)
+            <tr>
+                <td class="image-cell">
+                <div class="image">
+                    <img src="{{ 'data:image/png;base64,' . $building->image }}" class="rounded-full">
+                </div>
+                </td>
+                <td data-label="Name">{{ $building->name }}</td>
+                <td data-label="Phone">{{ $building->phone }}</td>
+                <td data-label="Address">{{ $building->address }}</td>
+                <td data-label="Created">
+                <small class="text-gray-500">{{ $building->created_at }}</small>
+                </td>
+                <td data-label="Updated">
+                    <small class="text-gray-500">{{ $building->updated_at }}</small>
+                    </td>
+                <td class="actions-cell">
+                <div class="buttons right nowrap">
+                    <button class="button small blue --jb-modal"  data-target="sample-modal-2" type="button">
+                    <span class="icon"><i class="mdi mdi-eye"></i></span>
+                    </button>
+                    <button class="button small red --jb-modal" data-target="sample-modal" type="button">
+                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                    </button>
+                </div>
+                </td>
+            </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
@@ -103,9 +79,9 @@
 <script>
     $(document).ready(function() {
       $('table').DataTable({
-        columnDefs: [
-            { orderable: false, targets: [0, 6] }
-        ],
+        // columnDefs: [
+        //     { orderable: false, targets: [4] }
+        // ],
         order: [[1, 'asc']]
       });
       $('.dataTables_length').addClass('bs-select');

@@ -57,12 +57,12 @@
                             <div class="field grouped">
                                 <div class="control icons-left">
                                     <input class="input" name="latitude" id="latitude" placeholder="Latitude"
-                                        required type="number" step="0.00000001" value="-6.232393">
+                                        required type="text" value="-6.232393">
                                     <span class="icon left"><i class="mdi mdi-map-marker"></i></span>
                                 </div>
                                 <div class="control icons-left">
                                     <input class="input" name="longitude" id="longitude" placeholder="Longitude"
-                                        required type="number" step="0.00000001" value="106.820287">
+                                        required type="text" value="106.820287">
                                     <span class="icon left"><i class="mdi mdi-map-marker"></i></span>
                                 </div>
                                 <div class="control">
