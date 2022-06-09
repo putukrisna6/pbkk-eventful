@@ -1,19 +1,10 @@
 @extends('owner.layouts.app')
 
 @section('content')
-    <section class="is-title-bar">
-        <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-                <ul>
-                    <li>Buildings</li>
-                    <li>Edit</li>
-                </ul>
-        </div>
-    </section>
-
     <section class="is-hero-bar">
         <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
             <h1 class="title">
-                Form Edit Buildings
+                Edit <b>{{ $building->name }}</b>
             </h1>
         </div>
     </section>
@@ -29,7 +20,6 @@
         <div class="card-content">
             <form method="get">
             <div class="field">
-                <!-- <label class="label">From</label> -->
                 <div class="field-body">
                     <div class="field">
                         <div class="control icons-left">
@@ -107,6 +97,6 @@
             </form>
         </div>
         </div>
-    </section>    
+    </section>
 
 @endsection
