@@ -1,25 +1,18 @@
 @extends('owner.layouts.app')
 
 @section('content')
-    <section class="is-title-bar">
-        <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-                <ul>
-                    <li>Buildings</li>
-                    <li>Show</li>
-                </ul>
-        </div>
-    </section>
-
     <section class="is-hero-bar">
         <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
             <h1 class="title">
-                Show Detail Building
+                Manage <b>{{ $building->name }}</b>
             </h1>
+            <a href="{{ route('buildings.edit', ['building' => $building]) }}" class="button light"><span class="icon"><i
+                class="mdi mdi-pencil"></i></span>Edit</a>
         </div>
     </section>
 
     <section class="section main-section">
-        
-    </section>    
+
+    </section>
 
 @endsection

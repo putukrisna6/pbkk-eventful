@@ -44,8 +44,7 @@ class BuildingsController extends Controller
         return redirect()->route('buildings.index');
     }
 
-    public function edit($id) {
-        $building = Building::find($id);
+    public function edit(Building $building) {
         return view('owner.buildings.edit', compact('building'));
     }
 
@@ -55,8 +54,12 @@ class BuildingsController extends Controller
         return redirect()->route('buildings.index');
     }
 
-    public function show($id) {
-        $building = Building::find($id);
+    public function show(Building $building) {
+        if ($building->user_id != Auth::id()) {
+            session()->flash('error', 'Building not found.');
+            return redirect()->route('buildings.index');
+        }
+
         return view('owner.buildings.show', compact('building'));
     }
 

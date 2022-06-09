@@ -61,10 +61,10 @@
                                 </td>
                                 <td class="actions-cell">
                                     <div class="buttons right nowrap">
-                                        <button class="button small blue --jb-modal" data-target="sample-modal-2"
+                                        <a href="{{ route('buildings.show', ['building' => $building]) }}" class="button small blue --jb-modal" data-target="sample-modal-2"
                                             type="button">
                                             <span class="icon"><i class="mdi mdi-eye"></i></span>
-                                        </button>
+                                        </a>
                                         <form class="mb-0" action="{{ route('buildings.destroy', ['building' => $building]) }}"
                                             method="POST">
                                             @method('delete')
