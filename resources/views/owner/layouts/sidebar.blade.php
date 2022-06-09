@@ -6,8 +6,8 @@
     </div>
     <div class="menu is-menu-main">
         <ul class="menu-list">
-            <li class="{{ (request()->is('admin/dashboard*')) ? 'active' : '' }}">
-                <a href="">
+            <li class="{{ (request()->is('owner/dashboard*')) ? 'active' : '' }}">
+                <a href="{{ route('owner.dashboard') }}">
                     <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
                     <span class="menu-item-label">Dashboard</span>
                 </a>
@@ -15,10 +15,10 @@
         </ul>
         <p class="menu-label">Building Management</p>
         <ul class="menu-list">
-            <li class="{{ (request()->is('owner')) ? 'active' : '' }}">
+            <li class="{{ (request()->is('owner/buildings*')) ? 'active' : '' }}">
                 <a href="{{ route('buildings.index') }}" class="">
                     <span class="icon"><i class="mdi mdi-view-list"></i></span>
-                    <span class="menu-item-label">List Gedung</span>
+                    <span class="menu-item-label">List</span>
                 </a>
             </li>
             <li>
