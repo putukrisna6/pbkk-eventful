@@ -1,12 +1,16 @@
 @extends('admin.layouts.app')
 
+@section('styles')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+@endsection
+
 @section('content')
     <section class="is-hero-bar">
         <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
             <h1 class="title">
                 {{ $role }} Management
             </h1>
-            <button class="button light">Button</button>
         </div>
     </section>
 
@@ -17,12 +21,9 @@
                     <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
                     Users
                 </p>
-                <a href="#" class="card-header-icon">
-                    <span class="icon"><i class="mdi mdi-reload"></i></span>
-                </a>
             </header>
             <div class="card-content">
-                <table>
+                <table class="table">
                     <thead>
                         <tr>
                             <th></th>
@@ -65,17 +66,24 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="table-pagination">
-                    <div class="flex items-center justify-between">
-                        <div class="buttons">
-                            <button type="button" class="button active">1</button>
-                            <button type="button" class="button">2</button>
-                            <button type="button" class="button">3</button>
-                        </div>
-                        <small>Page 1 of 3</small>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
+@endsection
+
+@section('scripts')
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ asset('asset/js/datatables.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('asset/js/jquery.rowspanizer.min.js') }}"></script>
+<script>
+    $(document).ready(function() {
+      $('table').DataTable({
+        columnDefs: [
+            { orderable: false, targets: [0, 5] }
+        ],
+        order: [[1, 'asc']]
+      });
+      $('.dataTables_length').addClass('bs-select');
+    });
+  </script>
 @endsection

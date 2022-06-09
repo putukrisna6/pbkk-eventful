@@ -100,3 +100,7 @@
         </div>
     </section>
 @endsection
+
+@section('scripts')
+<script type="text/javascript" src="{{ asset('asset/js/chart.sample.min.js') }}"></script>
+@endsection
