@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('buildings', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('text');
+            $table->string('address');
+            $table->string('phone');
+            $table->text('image');
+            $table->float('latitude');
+            $table->float('longitude');
             $table->timestamps();
         });
     }

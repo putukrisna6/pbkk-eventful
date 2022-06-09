@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('building_id');
+            $table->foreignId('user_id');
+            $table->foreignId('building_id');
+            $table->string('total_price');
+            $table->datetime('order_date');
             $table->timestamps();
         });
     }
@@ -26,6 +31,9 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropForeign(['building_id'], ['user_id']);
+        });
         Schema::dropIfExists('orders');
     }
 };

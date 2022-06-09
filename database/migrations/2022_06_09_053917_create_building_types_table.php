@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('building_types', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('building_id');
+            $table->foreignId('type_id');
             $table->timestamps();
         });
     }
@@ -25,7 +27,11 @@ return new class extends Migration
      * @return void
      */
     public function down()
-    {
+    {   
+        Schema::table('building_types', function (Blueprint $table) {
+            $table->dropForeign(['building_id'], ['type_id']);
+        });
+        
         Schema::dropIfExists('building_types');
     }
 };
