@@ -1,5 +1,10 @@
 @extends('admin.layouts.app')
 
+@section('styles')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+@endsection
+
 @section('content')
     <section class="is-hero-bar">
         <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
@@ -71,6 +76,18 @@
 @endsection
 
 @section('scripts')
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ asset('asset/js/datatables.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('asset/js/jquery.rowspanizer.min.js') }}"></script>
 <script>
-</script>
+    $(document).ready(function() {
+      $('table').DataTable({
+        columnDefs: [
+            { orderable: false, targets: [0, 5] }
+        ],
+        order: [[1, 'asc']]
+      });
+      $('.dataTables_length').addClass('bs-select');
+    });
+  </script>
 @endsection
