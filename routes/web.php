@@ -33,10 +33,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 Route::group(['prefix' => 'owner', 'middleware' => 'auth'], function() {
     Route::group(['middleware' => 'checkRole:owner'], function() {
         Route::get('/dashboard', [OwnerController::class, 'dashboard'])->name('owner.dashboard');
-        Route::group(['prefix' => 'buildings'], function() {
-            Route::get('/', [BuildingsController::class, 'index'])->name('buildings.index');
-            Route::get('/create', [BuildingsController::class, 'create'])->name('buildings.create');
-        });
+        Route::resource('buildings', BuildingsController::class);
         // Route::get('/dashboard', [AdminController::class, 'home'])->name('owner.dashboard');
         // Route::group(['prefix' => 'users'], function() {
         //     Route::get('/{role}', [AdminController::class, 'users'])->name('users.all');
