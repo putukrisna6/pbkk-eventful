@@ -18,6 +18,7 @@
         </div>
     </section>
 
+    @extends('shared.layouts.flash')
 
     <section class="section main-section">
         <div class="card has-table">
@@ -64,7 +65,7 @@
                                             type="button">
                                             <span class="icon"><i class="mdi mdi-eye"></i></span>
                                         </button>
-                                        <form action="{{ route('buildings.destroy', ['building' => $building]) }}"
+                                        <form class="mb-0" action="{{ route('buildings.destroy', ['building' => $building]) }}"
                                             method="POST">
                                             @method('delete')
                                             @csrf

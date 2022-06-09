@@ -40,7 +40,7 @@ class BuildingsController extends Controller
         $building->user_id = Auth::user()->id;
 
         $building->save();
-
+        session()->flash('success', 'Building created successfully.');
         return redirect()->route('buildings.index');
     }
 
@@ -60,10 +60,10 @@ class BuildingsController extends Controller
         return view('owner.buildings.show', compact('building'));
     }
 
-    public function delete($id) {
+    public function destroy($id) {
         $building = Building::find($id);
         $building->delete();
+        session()->flash('success', 'Building deleted successfully.');
         return redirect()->route('buildings.index');
     }
-
 }
