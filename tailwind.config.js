@@ -12,6 +12,10 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            backgroundImage: {
+                'carousel4': "url('/img/carousel4.png')",
+                'footer-texture': "url('/img/footer-texture.png')",
+              }
         },
     },
 
