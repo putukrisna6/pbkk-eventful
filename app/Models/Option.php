@@ -15,7 +15,12 @@ class Option extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'building_id',
         'name',
         'image'
     ];
+
+    public function building() {
+        return $this->belongsTo(Building::class);
+    }
 }
