@@ -15,10 +15,10 @@
         </ul>
         <p class="menu-label">Building Management</p>
         <ul class="menu-list">
-            <li>
-                <a href="#" class="">
+            <li class="{{ (request()->is('owner')) ? 'active' : '' }}">
+                <a href="{{ route('buildings.index') }}" class="">
                     <span class="icon"><i class="mdi mdi-view-list"></i></span>
-                    <span class="menu-item-label">List</span>
+                    <span class="menu-item-label">List Gedung</span>
                 </a>
             </li>
             <li>
