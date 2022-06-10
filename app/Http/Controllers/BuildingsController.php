@@ -77,7 +77,11 @@ class BuildingsController extends Controller
             return redirect()->route('buildings.index');
         }
 
-        return view('owner.buildings.show', compact('building'));
+        $buildingType = BuildingType::where('building_id', $building->id)->first();
+        //get types name from type id
+        $types = Type::find($buildingType->type_id);
+
+        return view('owner.buildings.show', compact('building', 'types', 'buildingType'));
     }
 
     public function destroy($id) {
