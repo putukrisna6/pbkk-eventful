@@ -71,15 +71,30 @@
                                         </div>
                                     </div>
                                 </div>
+                                @if ($order->status == 0)
                                 <div class='w-full md:w-full px-3 mb-6 '>
                                     <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Proof of Payment</label>
-                                    <button class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md "><input id="proof_of_payment" name="proof_of_payment" type="file"></button>
+                                    <button class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md "><input {{ ($order->status == 0 ) ? '' : 'disabled' }} id="proof_of_payment" name="proof_of_payment" type="file"></button>
                                 </div>
                                 <div class="flex flex-row justify-end">
                                     <button
                                         class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md mr-3"
                                         type="submit">Proceed</button>
                                 </div>
+                                @else
+                                <div class="flex items-center justify-between">
+                                    <div class='w-full px-3 mb-6'>
+                                        <label
+                                            class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>
+                                            Order Status
+                                        </label>
+                                        <div
+                                            class='appearance-none block w-full text-gray-700 border-0 border-b-2 bg-transparent border-gray-400  py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'>
+                                            {{ $status[$order->status] }}
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
                             </div>
                         </div>
                     </form>
