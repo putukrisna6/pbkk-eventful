@@ -9,6 +9,7 @@ use App\Http\Controllers\BuildingsController;
 use App\Http\Controllers\TypesController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\OptionsController;
+use App\Http\Controllers\OrdersController;
 
 
 /*
@@ -25,7 +26,6 @@ use App\Http\Controllers\OptionsController;
 Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
 Route::get('/catalogue', [HomeController::class, 'catalogue'])->name('catalogue');
 Route::get('/detail/{building}', [HomeController::class, 'detail'])->name('detail');
-Route::post('/rent', [HomeController::class, 'rent'])->name('rent');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::group(['middleware' => 'checkRole:admin'], function() {
@@ -67,6 +67,12 @@ Route::group(['middleware' => 'auth'], function() {
         Route::group(['prefix' => 'profile'], function() {
             Route::get('/', [ProfilesController::class, 'profile'])->name('tenant.profile');
             Route::put('/', [ProfilesController::class, 'profileUpdate'])->name('tenant.profile.update');
+        });
+
+        Route::post('/rent', [HomeController::class, 'rent'])->name('rent');
+        Route::group(['prefix' => 'orders'], function() {
+            Route::get('/{order}', [OrdersController::class, 'show'])->name('orders.show');
+            Route::put('/', [OrdersController::class, 'update'])->name('orders.update');
         });
     });
 });

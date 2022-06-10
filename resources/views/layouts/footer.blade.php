@@ -18,20 +18,17 @@
                     <ul class="list-reset items-center pt-3">
                         <li>
                             <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">
-                                <img src="img/instagram.png" alt="ig">
+                                <img src="{{ asset('img/instagram.png') }}" alt="ig">
                             </a>
                             <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">
-                                <img src="img/twitter.png" alt="twit">
+                                <img src="{{ asset('img/twitter.png') }}" alt="twit">
                             </a>
                             <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">
-                                <img src="img/whatsapp.png" alt="wa">
+                                <img src="{{ asset('img/whatsapp.png') }}" alt="wa">
                             </a>
                             <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">
-                                <img src="img/facebook.png" alt="fb">
+                                <img src="{{ asset('img/facebook.png') }}" alt="fb">
                             </a>
-                            <!-- <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">
-                                <img src="img/linkedin.png" alt="li" class="h-6">
-                            </a> -->
                         </li>
                     </ul>
                 </div>
