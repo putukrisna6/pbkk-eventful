@@ -29,6 +29,13 @@ class AdminController extends Controller
         return view('admin.management.approval.index', compact('tasks', 'status'));
     }
 
+    public function approvalShow($task) {
+        $status = Task::$STATUS;
+        $task = Task::where('id', $task)->with('user', 'building')->first();
+        dd($task);
+        return view('admin.management.approval.show', compact('task', 'status'));
+    }
+
     public function approveTask(Request $request, $task) {
         $task = Task::find($task);
         $task->status = $request->status;
