@@ -85,6 +85,7 @@ Route::group(['middleware' => 'auth'], function() {
         Route::group(['prefix' => 'orders'], function() {
             Route::get('/{order}', [OrdersController::class, 'show'])->name('orders.show');
             Route::put('/', [OrdersController::class, 'update'])->name('orders.update');
+            Route::get('/', [OrdersController::class, 'ordersTenants'])->name('orders.tenants');
         });
     });
 });

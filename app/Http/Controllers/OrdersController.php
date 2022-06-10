@@ -15,8 +15,9 @@ class OrdersController extends Controller
         $user = User::find(Auth::id());
         $profile = Profile::where('user_id', $user->id)->first();
         $order = Order::where('id', $id)->with('building')->first();
+        $status = Order::$STATUS;
 
-        return view('order', compact('order', 'user', 'profile'));
+        return view('order', compact('order', 'user', 'profile', 'status'));
     }
 
     public function update(Request $request) {
@@ -55,5 +56,11 @@ class OrdersController extends Controller
         $status = Order::$STATUS;
         $orders = Order::whereRelation('building', 'user_id', Auth::id())->with('building', 'user')->get();
         return view('owner.orders.index', compact('orders', 'status'));
+    }
+
+    public function ordersTenants() {
+        $status = Order::$STATUS;
+        $orders = Order::where('user_id', Auth::id())->with('building', 'user')->get();
+        return view('order-list', compact('orders', 'status'));
     }
 }
