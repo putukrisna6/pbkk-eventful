@@ -7,7 +7,7 @@
                 Manage <b>{{ $building->name }}</b>
             </h1>
             <div>
-                @if (in_array($building->status, [4, 5]))
+                @if (in_array($building->status, [2, 4, 5]))
                 <a href="{{ route('owner.options.manage', ['building' => $building->id]) }}" class="button blue"><span class="icon"><i
                     class="mdi mdi-store"></i></span>Rent Options</a>
                 @endif
