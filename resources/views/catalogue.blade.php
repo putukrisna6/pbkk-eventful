@@ -15,10 +15,10 @@
             <nav id="store" class="w-full z-30 top-0 px-6 py-1">
                 <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
-                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl md:ml-96"
+                    <p class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl md:ml-96"
                         href="#">
-                        Store
-                    </a>
+                        Buildings
+                    </p>
 
                     <div class="flex items-center" id="store-nav-content">
 
@@ -55,7 +55,7 @@
 
                         <div class="flex flex-col">
                             <p class="font-medium">
-                                Lokasi
+                                Location
                             </p>
                             <div class="pt-4">
                                 <select class="px-4 py-3 w-full rounded-md bg-gray-300 border-transparent focus:border-gray-400 focus:bg-white focus:ring-0 text-sm">
@@ -71,39 +71,17 @@
                             </div>
 
                             <p class="font-medium">
-                                Kategori
+                                Category
                             </p>
                             <div class="flex flex-col">
+                                @foreach ($types as $type)
                                 <div class="pt-4">
                                     <label class="inline-flex items-center">
                                         <input type="checkbox" class="form-checkbox h-5 w-5">
-                                        <span class="ml-3 text-md">Building</span>
+                                        <span class="ml-3 text-md">{{ $type->name }}</span>
                                     </label>
                                 </div>
-                                <div class="pt-4">
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" class="form-checkbox h-5 w-5">
-                                        <span class="ml-3 text-md">Facilities</span>
-                                    </label>
-                                </div>
-                                <div class="pt-4">
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" class="form-checkbox h-5 w-5">
-                                        <span class="ml-3 text-md">Tower</span>
-                                    </label>
-                                </div>
-                                <div class="pt-4">
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" class="form-checkbox h-5 w-5">
-                                        <span class="ml-3 text-md">Planetarium</span>
-                                    </label>
-                                </div>
-                                <div class="pt-4">
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" class="form-checkbox h-5 w-5">
-                                        <span class="ml-3 text-md">Apartment</span>
-                                    </label>
-                                </div>
+                                @endforeach
                             </div>
 
                             <div class="py-10">
@@ -111,7 +89,7 @@
                             </div>
 
                             <p class="font-medium">
-                                Harga
+                                Starting Price
                             </p>
 
                             <div class="flex flex-col">

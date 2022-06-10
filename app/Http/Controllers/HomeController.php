@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Building;
 use App\Models\Option;
+use App\Models\Type;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,8 @@ class HomeController extends Controller
     }
 
     public function catalogue() {
+        $types = Type::all();
         $buildings = Building::where('status', array_search('AVAILABLE', Building::$STATUS))->with('options')->get();
-        return view('catalogue', compact('buildings'));
+        return view('catalogue', compact('buildings', 'types'));
     }
 }
