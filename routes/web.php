@@ -7,6 +7,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\BuildingsController;
 use App\Http\Controllers\TypesController;
+use App\Http\Controllers\OptionsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +49,9 @@ Route::group(['prefix' => 'owner', 'middleware' => 'auth'], function() {
         });
 
         Route::resource('buildings', BuildingsController::class);
+
+        Route::get('/buildings/{building}/options', [OptionsController::class, 'optionsManage'])->name('owner.options.manage');
+        Route::post('/buildings/{building}/options', [OptionsController::class, 'optionsAvailability'])->name('owner.options.availability');
     });
 });
 
@@ -57,7 +62,7 @@ Route::group(['prefix' => 'tenant', 'middleware' => 'auth'], function() {
             Route::get('/', [ProfileController::class, 'profile'])->name('tenant.profile');
             // Route::get('/', [ProfileController::class, 'profileUpdate'])->name('tenant.profile');
         });
-        
+
     });
 });
 

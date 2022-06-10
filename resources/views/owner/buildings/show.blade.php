@@ -7,8 +7,8 @@
                 Manage <b>{{ $building->name }}</b>
             </h1>
             <div>
-                @if ($building->status == 4)
-                <a href="#" class="button blue"><span class="icon"><i
+                @if (in_array($building->status, [4, 5]))
+                <a href="{{ route('owner.options.manage', ['building' => $building->id]) }}" class="button blue"><span class="icon"><i
                     class="mdi mdi-store"></i></span>Rent Options</a>
                 @endif
                 <a href="{{ route('buildings.edit', ['building' => $building]) }}" class="button light"><span class="icon"><i
