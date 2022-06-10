@@ -68,6 +68,10 @@ class BuildingsController extends Controller
         $building = Building::find($id);
         $building->update($request->all());
         
+        $buildingType = BuildingType::where('building_id', $building->id)->first();
+        $buildingType->type_id = $request->type_id;
+        $buildingType->save();
+
         return redirect()->route('buildings.index');
     }
 

@@ -58,7 +58,7 @@
                         <div class="field">
                             <label class="label">Building Description</label>
                             <div class="control">
-                                <textarea class="textarea is-static " readonly id="text" name="text" value="{{ $building->text }}" ></textarea>
+                                <textarea class="textarea is-static" readonly id="text" name="text" ><?php echo htmlspecialchars($building->text); ?></textarea>
                             </div>
                         </div>
 
