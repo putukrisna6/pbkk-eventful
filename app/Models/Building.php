@@ -46,4 +46,8 @@ class Building extends Model
     public function tasks() {
         return $this->hasMany(Task::class);
     }
+
+    public function orders() {
+        return $this->hasMany(Order::class);
+    }
 }

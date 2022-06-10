@@ -67,6 +67,10 @@ Route::group(['prefix' => 'owner', 'middleware' => 'auth'], function() {
         Route::get('/buildings/{building}/options/create', [OptionsController::class, 'create'])->name('owner.options.create');
         Route::post('/options', [OptionsController::class, 'store'])->name('owner.options.store');
         Route::delete('/options', [OptionsController::class, 'destroy'])->name('owner.options.destroy');
+
+        Route::group(['prefix' => 'orders'], function() {
+            Route::get('/', [OrdersController::class, 'ordersOwner'])->name('orders.owner');
+        });
     });
 });
 
