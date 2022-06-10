@@ -8,6 +8,8 @@ use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\BuildingsController;
 use App\Http\Controllers\TypesController;
 use App\Http\Controllers\ProfilesController;
+use App\Http\Controllers\OptionsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,12 @@ Route::group(['prefix' => 'owner', 'middleware' => 'auth'], function() {
         });
 
         Route::resource('buildings', BuildingsController::class);
+
+        Route::get('/buildings/{building}/options', [OptionsController::class, 'optionsManage'])->name('owner.options.manage');
+        Route::post('/buildings/{building}/options', [OptionsController::class, 'optionsAvailability'])->name('owner.options.availability');
+        Route::get('/buildings/{building}/options/create', [OptionsController::class, 'create'])->name('owner.options.create');
+        Route::post('/options', [OptionsController::class, 'store'])->name('owner.options.store');
+        Route::delete('/options', [OptionsController::class, 'destroy'])->name('owner.options.destroy');
     });
 });
 
@@ -58,7 +66,7 @@ Route::group(['prefix' => 'tenant', 'middleware' => 'auth'], function() {
             Route::get('/', [ProfilesController::class, 'profile'])->name('tenant.profile');
             Route::put('/', [ProfilesController::class, 'profileUpdate'])->name('tenant.profile.update');
         });
-        
+
     });
 });
 
