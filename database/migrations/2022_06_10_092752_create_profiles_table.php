@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->date('birthday');
-            $table->string('gender');
-            $table->string('phone');
-            $table->string('address');
-            $table->string('city');
-            $table->text('image');
+            $table->date('birthday')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->text('image')->nullable();
             $table->timestamps();
         });
     }
