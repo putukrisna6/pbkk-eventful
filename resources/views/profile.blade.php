@@ -10,8 +10,8 @@
                                 <img src="img/profile.png" alt="" srcset="" class="h-20 w-20 ml-2 mt-4 mb-8">
                                 <div class="flex flex-col mt-4 ml-8">
                                     <p class="font-bold text-xl">Putom</p>
-                                    <p>pututom@gmail.com</p> 
-                                    <p>+62 89764529875</p> 
+                                    <p>pututom@gmail.com</p>
+                                    <p>+62 89764529875</p>
                                 </div>
                             </div>
                             <div class='w-full md:w-full px-3 mb-6'>
@@ -69,7 +69,7 @@
                                 </div>
                                 <div class='w-full md:w-full px-3 mb-6'>
                                     <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >Occupation</label>
-                                    <textarea class='bg-gray-100 rounded-md border leading-normal resize-none w-full h-20 py-2 px-3 shadow-inner border border-gray-400 font-medium placeholder-gray-700 focus:outline-none focus:bg-white'  required></textarea>
+                                    <textarea class='bg-gray-100 rounded-md leading-normal resize-none w-full h-20 py-2 px-3 shadow-inner border border-gray-400 font-medium placeholder-gray-700 focus:outline-none focus:bg-white'  required></textarea>
                                 </div>
                                 <div class="flex flex-row justify-end">
                                 <button class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md mr-3" type="submit">Return</button>
