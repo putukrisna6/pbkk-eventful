@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\BuildingsController;
@@ -18,9 +19,7 @@ use App\Http\Controllers\TypesController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::group(['middleware' => 'checkRole:admin'], function() {
