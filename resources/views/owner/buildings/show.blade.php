@@ -6,34 +6,27 @@
             <h1 class="title">
                 Manage <b>{{ $building->name }}</b>
             </h1>
-            <a href="{{ route('buildings.edit', ['building' => $building]) }}" class="button light"><span class="icon"><i
-                class="mdi mdi-pencil"></i></span>Edit</a>
+            <div>
+                @if ($building->status == 4)
+                <a href="#" class="button blue"><span class="icon"><i
+                    class="mdi mdi-store"></i></span>Rent Options</a>
+                @endif
+                <a href="{{ route('buildings.edit', ['building' => $building]) }}" class="button light"><span class="icon"><i
+                    class="mdi mdi-pencil"></i></span>Edit</a>
+            </div>
         </div>
     </section>
 
     <section class="section main-section">
         <div class="card mb-6">
-            <header class="card-header">
-                <p class="card-header-title">
-                    <span class="icon"><i class="mdi mdi-ballot"></i></span>
-                    Show Data:<b> {{ $building->name }}</b>
-                </p>
-            </header>
             <div class="card-content">
                 <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 mb-6">
                     <div class="card">
                         <div class="image">
-                            <img src="{{ asset('img/carousel.jpg')}}" alt="John Doe" class="">
+                            <img src="{{ 'data:image/png;base64,' . $building->image }}" alt="building image" style="">
                         </div>
-                    </div>    
+                    </div>
                     <div class="card">
-                        <div class="field">
-                            <label class="label">Name</label>
-                            <div class="control">
-                                <input type="text" readonly value="{{ $building->name }}" class="input is-static">
-                            </div>
-                        </div>
-
                         <div class="field">
                             <label class="label">Building Type</label>
                             <div class="control">
@@ -80,7 +73,8 @@
                                 <div id="map" style="height: 500px"></div>
                             </div>
                         </div>
-                    </div>                
+                    </div>
+
                 </div>
             </div>
         </div>
