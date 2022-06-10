@@ -19,7 +19,7 @@ use App\Http\Controllers\TypesController;
 */
 
 Route::get('/', function () {
-    return view('detailgedung');
+    return view('welcome');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
