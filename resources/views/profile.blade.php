@@ -1,6 +1,6 @@
 <x-app-layout>
     <div>
-        <div class="bg-gray-200 min-h-screen pt-2 my-16">
+        <div class="bg-gray-200 min-h-screen pt-4">
             <div class="container mx-auto">
                 <div class="inputs w-full max-w-2xl p-6 mx-auto">
                     <h2 class="text-2xl text-gray-900">My Account</h2>
