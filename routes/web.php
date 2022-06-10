@@ -28,6 +28,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         Route::group(['prefix' => 'users'], function() {
             Route::get('/{role}', [AdminController::class, 'users'])->name('users.all');
         });
+        Route::group(['prefix' => 'approval'], function() {
+            Route::get('/', [AdminController::class, 'approvalQueue'])->name('approval.queue');
+            Route::post('/{task}/approve', [AdminController::class, 'approveTask'])->name('approval.approve');
+        });
         Route::resource('types', TypesController::class);
     });
 });
@@ -35,6 +39,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 Route::group(['prefix' => 'owner', 'middleware' => 'auth'], function() {
     Route::group(['middleware' => 'checkRole:owner'], function() {
         Route::get('/dashboard', [OwnerController::class, 'dashboard'])->name('owner.dashboard');
+
+        Route::group(['prefix' => 'approval'], function() {
+            Route::get('/', [OwnerController::class, 'approval'])->name('owner.approval');
+            Route::get('/apply', [OwnerController::class, 'approvalApply'])->name('owner.approval.apply');
+            Route::post('/', [OwnerController::class, 'approvalStore'])->name('owner.approval.store');
+        });
+
         Route::resource('buildings', BuildingsController::class);
     });
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Task;
 
 class AdminController extends Controller
 {
@@ -20,5 +21,19 @@ class AdminController extends Controller
         $data['users'] = User::where('role', $role)->get();
 
         return view('admin.management.users.all', $data);
+    }
+
+    public function approvalQueue() {
+        $status = Task::$STATUS;
+        $tasks = Task::where('status', 0)->with('user', 'building')->get();
+        return view('admin.management.approval.index', compact('tasks', 'status'));
+    }
+
+    public function approveTask(Request $request, $task) {
+        $task = Task::find($task);
+        $task->status = $request->status;
+        $task->save();
+
+        return redirect()->route('approval.queue');
     }
 }

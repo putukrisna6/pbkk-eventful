@@ -42,8 +42,8 @@
                     <span class="menu-item-label">Building Types</span>
                 </a>
             </li>
-            <li>
-                <a href="#" class="">
+            <li class="{{ (request()->is('admin/approval*')) ? 'active' : '' }}">
+                <a href="{{ route('approval.queue') }}" class="">
                     <span class="icon"><i class="mdi mdi-playlist-check"></i></span>
                     <span class="menu-item-label">Approval Queue</span>
                 </a>
