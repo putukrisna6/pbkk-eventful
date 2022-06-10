@@ -39,9 +39,9 @@
                             </div>
                             <div class="field">
                                 <div class="control icons-left">
-                                    <select class="input" id="type_id" name="type_id" value="old('type_id')" required
+                                    <select class="input" id="type_id" name="type_id" :value="old('type_id')" required
                                         autofocus type="text">
-                                        <option  value="$buildingType->type_id">Select Building Type</option>
+                                        <option  value="{{ $buildingType->type_id }}">Select Building Type</option>
                                         @foreach ($types as $type)
                                         <option value="{{ $type->id }}" {{$buildingType->type_id == $type->id  ? 'selected' : ''}}>{{ $type->name }}</option>
                                         @endforeach

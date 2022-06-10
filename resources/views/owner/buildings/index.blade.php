@@ -63,6 +63,10 @@
                                 </td>
                                 <td class="actions-cell">
                                     <div class="buttons right nowrap">
+                                        <a href="{{ route('buildings.edit', ['building' => $building]) }}" class="button small active --jb-modal" data-target="sample-modal-2"
+                                            type="button">
+                                            <span class="icon"><i class="mdi mdi-pencil"></i></span>
+                                        </a>
                                         <a href="{{ route('buildings.show', ['building' => $building]) }}" class="button small blue --jb-modal" data-target="sample-modal-2"
                                             type="button">
                                             <span class="icon"><i class="mdi mdi-eye"></i></span>
