@@ -40,6 +40,6 @@ class HomeController extends Controller
         $order->status = array_search('INIT', Order::$STATUS);
         $order->save();
 
-        return 'order made';
+        return redirect()->route('orders.show', $order->id);
     }
 }

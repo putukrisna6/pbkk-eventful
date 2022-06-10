@@ -52,8 +52,7 @@ class TypesController extends Controller
     public function update(Request $request, $id) {
         try {
             $request->validate([
-                'name' => ['required', 'string', 'max:255', 'unique:types,name,' . $id],
-                // 'image' => ['required', 'image'],
+                'name' => ['required', 'string', 'max:255', 'unique:types,name,' . $id]
             ]);
         } catch (\Illuminate\Validation\ValidationException $e) {
             $message = '';
@@ -71,7 +70,6 @@ class TypesController extends Controller
             $type->image = base64_encode(file_get_contents($request->file('image')->path()));
         }
 
-        // $type->image = base64_encode(file_get_contents($request->file('image')->path()));
         $type->save();
         session()->flash('success', 'Type updated successfully.');
         return redirect()->route('types.index');

@@ -18,7 +18,6 @@
                             <div class='w-full md:w-full px-3 mb-6 '>
                                 <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Profile picture</label>
                                 <button class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md "><input id="image" name="image" type="file" value="{{ $profile->image }}"></button>
-
                             </div>
 
                             <div class="personal w-full border-t border-gray-400 pt-4">
