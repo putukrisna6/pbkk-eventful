@@ -60,14 +60,14 @@ class BuildingsController extends Controller
     public function edit(Building $building) {
         $buildingType = BuildingType::where('building_id', $building->id)->first();
         $types = Type::all();
-        // dd($building);
+
         return view('owner.buildings.edit', compact('building', 'types', 'buildingType'));
     }
 
     public function update(Request $request, $id) {
         $building = Building::find($id);
         $building->update($request->all());
-        
+
         $buildingType = BuildingType::where('building_id', $building->id)->first();
         $buildingType->type_id = $request->type_id;
         $buildingType->save();
