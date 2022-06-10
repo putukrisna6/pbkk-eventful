@@ -28,7 +28,7 @@
         </div>
 
         <div class="order-2 md:order-3 flex items-center" id="nav-content">
-
+            @auth
             <a class="inline-block no-underline hover:text-black" href="#">
                 <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <circle fill="none" cx="12" cy="7" r="3" />
@@ -43,8 +43,18 @@
                     <circle cx="17.5" cy="18.5" r="1.5" />
                 </svg>
             </a>
+            <form class="inline-block no-underline hover:text-black hover:underline py-2 px-4" method="POST" action="{{ route('logout') }}">
+                @csrf
+                <a class="" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                    <span>Logout</span>
+                </a>
+            </form>
+            @else
+            <a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="{{ route('login') }}">Login</a>
+            <a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="{{ route('register') }}">Register</a>
+            @endauth
 
-            <a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Logout</a>
+
         </div>
     </div>
 </nav>
