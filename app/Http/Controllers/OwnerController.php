@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Task;
 use App\Models\Building;
+use App\Models\Order;
 
 class OwnerController extends Controller
 {
     public function dashboard() {
-        return view('owner.dashboard');
+        $buildings = Building::where('user_id', Auth::id())->count();
+        $tasks = Task::where('user_id', Auth::id())->where('status', 0)->count();
+        $orders = Order::whereRelation('building', 'user_id', Auth::id())->where('status', 2)->sum('total_price');
+        return view('owner.dashboard', compact('buildings', 'tasks', 'orders'));
     }
 
     public function approval() {
