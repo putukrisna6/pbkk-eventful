@@ -14,7 +14,7 @@ class HomeController extends Controller
     }
 
     public function catalogue() {
-        $buildings = Building::where('status', array_search('AVAILABLE', Building::$STATUS))->get();
+        $buildings = Building::where('status', array_search('AVAILABLE', Building::$STATUS))->with('options')->get();
         return view('catalogue', compact('buildings'));
     }
 }

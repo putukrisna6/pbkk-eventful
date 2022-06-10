@@ -95,17 +95,14 @@
             <nav id="store" class="w-full z-30 top-0 px-6 py-1">
                 <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
-                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl "
-                        href="#">
+                    <p class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl">
                         Store
-                    </a>
+                    </p>
 
                     <div class="flex items-center" id="store-nav-content">
-
-                        <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+                        <a class="pl-3 inline-block no-underline hover:text-black" href="{{ route('catalogue') }}">
                             <h2 class="inline-block font-bold no-underline text-grey-500 border-b border-black leading-relaxed hover:text-black hover:border-black">Browse</h2>
                         </a>
-
                     </div>
                 </div>
             </nav>
