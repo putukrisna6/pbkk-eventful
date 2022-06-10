@@ -49,8 +49,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function buildings()
-    {
+    public function buildings() {
         return $this->hasMany(Building::class, 'user_id');
+    }
+
+    public function tasks() {
+        return $this->hasMany(Task::class, 'user_id');
     }
 }
