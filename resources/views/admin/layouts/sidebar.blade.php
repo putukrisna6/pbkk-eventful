@@ -49,5 +49,14 @@
                 </a>
             </li>
         </ul>
+        <p class="menu-label">Order Management</p>
+        <ul class="menu-list">
+            <li class="{{ (request()->is('admin/orders*')) ? 'active' : '' }}">
+                <a href="{{ route('orders.queue') }}" class="">
+                    <span class="icon"><i class="mdi mdi-receipt"></i></span>
+                    <span class="menu-item-label">Orders Queue</span>
+                </a>
+            </li>
+        </ul>
     </div>
 </aside>

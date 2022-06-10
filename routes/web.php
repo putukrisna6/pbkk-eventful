@@ -30,15 +30,23 @@ Route::get('/detail/{building}', [HomeController::class, 'detail'])->name('detai
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::group(['middleware' => 'checkRole:admin'], function() {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
         Route::group(['prefix' => 'users'], function() {
             Route::get('/{role}', [AdminController::class, 'users'])->name('users.all');
         });
+
         Route::group(['prefix' => 'approval'], function() {
             Route::get('/', [AdminController::class, 'approvalQueue'])->name('approval.queue');
             Route::get('/{task}', [AdminController::class, 'approvalShow'])->name('approval.show');
             Route::post('/{task}/approve', [AdminController::class, 'approveTask'])->name('approval.approve');
         });
+
         Route::resource('types', TypesController::class);
+
+        Route::group(['prefix' => 'orders'], function() {
+            Route::get('/queue', [OrdersController::class, 'ordersQueue'])->name('orders.queue');
+            Route::post('/', [OrdersController::class, 'ordersApprove'])->name('orders.approve');
+        });
     });
 });
 
