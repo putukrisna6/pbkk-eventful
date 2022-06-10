@@ -10,7 +10,10 @@ use App\Models\Building;
 class AdminController extends Controller
 {
     public function dashboard() {
-        return view('admin.dashboard');
+        $tenants = User::where('role', 'tenant')->count();
+        $owners = User::where('role', 'owner')->count();
+        $buildings = Building::count();
+        return view('admin.dashboard', compact('tenants', 'owners', 'buildings'));
     }
 
     public function users($role) {
