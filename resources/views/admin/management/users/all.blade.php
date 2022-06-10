@@ -15,7 +15,7 @@
     </section>
 
     <section class="section main-section">
-        <div class="card has-table">
+        <div class="card">
             <header class="card-header">
                 <p class="card-header-title">
                     <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
