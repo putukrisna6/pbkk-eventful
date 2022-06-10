@@ -14,7 +14,8 @@ class Building extends Model
         'PENDING',
         'APPROVED',
         'REJECTED',
-        'REVISION'
+        'AVAILABLE',
+        'UNAVAILABLE',
     ];
 
     /**
