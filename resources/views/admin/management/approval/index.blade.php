@@ -53,6 +53,14 @@
                                 </td>
                                 <td class="actions-cell">
                                     <div class="buttons right nowrap">
+                                        <form class="mb-0" action="{{ route('approval.approve', ['task' => $task->id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            <input type="hidden" value="2" name="approval_status" id="approval_status">
+                                            <button class="button small green --jb-modal" type="submit">
+                                                <span class="icon"><i class="mdi mdi-check"></i></span>
+                                            </button>
+                                        </form>
                                         <a href="{{ route('approval.show', ['task' => $task->id]) }}" class="button small blue"
                                             type="button">
                                             <span class="icon"><i class="mdi mdi-eye"></i></span>

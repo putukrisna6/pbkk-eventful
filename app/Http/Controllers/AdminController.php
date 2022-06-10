@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Task;
+use App\Models\Building;
 
 class AdminController extends Controller
 {
@@ -38,9 +39,14 @@ class AdminController extends Controller
 
     public function approveTask(Request $request, $task) {
         $task = Task::find($task);
-        $task->status = $request->status;
+        $task->status = 1;
         $task->save();
 
+        $building = Building::find($task->building->id);
+        $building->status = $request->approval_status;
+        $building->save();
+
+        session()->flash('success', 'Approval for ' . $building->name . ' successful');
         return redirect()->route('approval.queue');
     }
 }
