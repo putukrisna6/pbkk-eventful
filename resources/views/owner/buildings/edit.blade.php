@@ -32,14 +32,14 @@
                             </div>
                             <div class="field">
                                 <div class="control icons-left">
-                                    <textarea class="textarea" style="padding-left: 2.5rem" id="text" name="text" value="{{ $building->text }}" required
-                                        placeholder="Building Description"></textarea>
+                                    <textarea class="textarea" style="padding-left: 2.5rem" id="text" name="text"  required
+                                        placeholder="Building Description"><?php echo htmlspecialchars($building->text); ?></textarea>
                                     <span class="icon left"><i class="mdi mdi-text"></i></span>
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="control icons-left">
-                                    <select class="input" id="type_id" name="type_id" value="{{$buildingType->type_id}}" required
+                                    <select class="input" id="type_id" name="type_id" value="old('type_id')" required
                                         autofocus type="text">
                                         <option  value="$buildingType->type_id">Select Building Type</option>
                                         @foreach ($types as $type)
