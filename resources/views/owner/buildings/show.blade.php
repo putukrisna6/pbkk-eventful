@@ -103,7 +103,6 @@
 
             var marker = new google.maps.Marker({
                 map: map,
-                draggable: true,
                 position: {
                     lat: parseFloat(latnya),
                     lng: parseFloat(longinya)

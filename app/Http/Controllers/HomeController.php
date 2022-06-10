@@ -19,4 +19,13 @@ class HomeController extends Controller
         $buildings = Building::where('status', array_search('AVAILABLE', Building::$STATUS))->with('options')->get();
         return view('catalogue', compact('buildings', 'types'));
     }
+
+    public function detail(Building $building) {
+        if ($building->status == array_search('AVAILABLE', Building::$STATUS)) {
+            $building->load('options');
+            return view('show', compact('building'));
+        } else {
+            return redirect()->route('welcome');
+        }
+    }
 }

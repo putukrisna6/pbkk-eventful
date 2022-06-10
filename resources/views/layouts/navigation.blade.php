@@ -20,7 +20,7 @@
         <div class="order-1 md:order-2">
             <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="/">
                 <div>
-                    <img src="img/icons.png" alt="ikon" class="h-10 w-10">
+                    <img src="{{ asset('img/icons.png') }}" alt="ikon" class="h-10 w-10">
                 </div>
                 Eventful
             </a>

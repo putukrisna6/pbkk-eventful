@@ -110,13 +110,11 @@
                     </div>
                 </div>
                 <div class="flex flex-col">
-                @if ($buildings->count() == 1)
-                @else
-                    @foreach ($buildings->split($buildings->count()/3) as $row)
+                @foreach ($buildings->split($buildings->count()/3) as $row)
                     <div class="flex flex-row">
                         @foreach ($row as $building)
                         <div class="w-full md:w-1/2 xl:w-1/3 p-6 flex flex-col">
-                            <a href="#">
+                            <a href="{{ route('detail', ['building' => $building]) }}">
                                 <img class="hover:grow hover:shadow-lg object-fill h-80"
                                     src="{{ 'data:image/png;base64,' . $building->image }}">
                                 <div class="pt-3 flex items-center justify-between">
@@ -132,8 +130,7 @@
                         </div>
                         @endforeach
                     </div>
-                    @endforeach
-                @endif
+                @endforeach
                 </div>
             </div>
 
