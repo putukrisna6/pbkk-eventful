@@ -21,10 +21,10 @@
                     <span class="menu-item-label">List</span>
                 </a>
             </li>
-            <li>
-                <a href="#" class="">
+            <li class="{{ (request()->is('owner/approval*')) ? 'active' : '' }}">
+                <a href="{{ route('owner.approval') }}" class="">
                     <span class="icon"><i class="mdi mdi-playlist-check"></i></span>
-                    <span class="menu-item-label">Approval Queue</span>
+                    <span class="menu-item-label">Approval</span>
                 </a>
             </li>
         </ul>
