@@ -11,8 +11,9 @@ use App\Models\BuildingType;
 class BuildingsController extends Controller
 {
     public function index() {
+        $status = Building::$STATUS;
         $buildings = Building::where('user_id', Auth::id())->get();
-        return view('owner.buildings.index', compact('buildings'));
+        return view('owner.buildings.index', compact('buildings', 'status'));
     }
 
     public function create() {

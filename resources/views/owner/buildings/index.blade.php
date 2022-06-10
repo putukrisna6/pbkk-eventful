@@ -36,6 +36,7 @@
                             <th>Name</th>
                             <th>Phone</th>
                             <th>Address</th>
+                            <th>Status</th>
                             <th>Created</th>
                             <th>Updated</th>
                             <th>Action</th>
@@ -53,6 +54,7 @@
                                 <td data-label="Name">{{ $building->name }}</td>
                                 <td data-label="Phone">{{ $building->phone }}</td>
                                 <td data-label="Address">{{ $building->address }}</td>
+                                <td data-label="Status">{{ $status[$building->status] }}</td>
                                 <td data-label="Created">
                                     <small class="text-gray-500">{{ $building->created_at }}</small>
                                 </td>

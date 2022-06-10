@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    public static $roleMapping = [
+    public static $ROLE_MAPPING = [
         'owner' => 'Owners',
         'tenant' => 'Tenants',
         'admin' => 'Administrators',
