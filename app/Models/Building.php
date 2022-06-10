@@ -26,7 +26,7 @@ class Building extends Model
     protected $fillable = [
         'user_id',
         'name',
-        'desc',
+        'text',
         'address',
         'phone_number',
         'image',

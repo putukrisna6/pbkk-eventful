@@ -58,12 +58,20 @@ class BuildingsController extends Controller
     }
 
     public function edit(Building $building) {
-        return view('owner.buildings.edit', compact('building'));
+        $buildingType = BuildingType::where('building_id', $building->id)->first();
+        $types = Type::all();
+        // dd($building);
+        return view('owner.buildings.edit', compact('building', 'types', 'buildingType'));
     }
 
     public function update(Request $request, $id) {
         $building = Building::find($id);
         $building->update($request->all());
+        
+        $buildingType = BuildingType::where('building_id', $building->id)->first();
+        $buildingType->type_id = $request->type_id;
+        $buildingType->save();
+
         return redirect()->route('buildings.index');
     }
 
@@ -73,7 +81,11 @@ class BuildingsController extends Controller
             return redirect()->route('buildings.index');
         }
 
-        return view('owner.buildings.show', compact('building'));
+        $buildingType = BuildingType::where('building_id', $building->id)->first();
+        //get types name from type id
+        $types = Type::find($buildingType->type_id);
+
+        return view('owner.buildings.show', compact('building', 'types', 'buildingType'));
     }
 
     public function destroy($id) {
