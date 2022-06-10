@@ -28,5 +28,14 @@
                 </a>
             </li>
         </ul>
+        <p class="menu-label">Order Management</p>
+        <ul class="menu-list">
+            <li class="{{ (request()->is('owner/orders*')) ? 'active' : '' }}">
+                <a href="{{ route('orders.owner') }}" class="">
+                    <span class="icon"><i class="mdi mdi-receipt"></i></span>
+                    <span class="menu-item-label">List</span>
+                </a>
+            </li>
+        </ul>
     </div>
 </aside>

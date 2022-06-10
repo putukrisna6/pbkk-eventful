@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\User;
 use App\Models\Profile;
+use App\Models\Building;
 
 class OrdersController extends Controller
 {
@@ -48,5 +49,11 @@ class OrdersController extends Controller
 
         session()->flash('success', 'Order payment confirmed successfully');
         return redirect()->route('orders.queue');
+    }
+
+    public function ordersOwner() {
+        $status = Order::$STATUS;
+        $orders = Order::whereRelation('building', 'user_id', Auth::id())->with('building', 'user')->get();
+        return view('owner.orders.index', compact('orders', 'status'));
     }
 }
