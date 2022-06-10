@@ -30,6 +30,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         });
         Route::group(['prefix' => 'approval'], function() {
             Route::get('/', [AdminController::class, 'approvalQueue'])->name('approval.queue');
+            Route::get('/{task}', [AdminController::class, 'approvalShow'])->name('approval.show');
             Route::post('/{task}/approve', [AdminController::class, 'approveTask'])->name('approval.approve');
         });
         Route::resource('types', TypesController::class);

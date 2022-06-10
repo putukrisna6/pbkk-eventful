@@ -53,18 +53,10 @@
                                 </td>
                                 <td class="actions-cell">
                                     <div class="buttons right nowrap">
-                                        <a href="" class="button small blue --jb-modal" data-target="sample-modal-2"
+                                        <a href="{{ route('approval.show', ['task' => $task->id]) }}" class="button small blue"
                                             type="button">
                                             <span class="icon"><i class="mdi mdi-eye"></i></span>
                                         </a>
-                                        <form class="mb-0" action=""
-                                            method="POST">
-                                            @method('delete')
-                                            @csrf
-                                            <button class="button small red --jb-modal" type="submit">
-                                                <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                            </button>
-                                        </form>
                                     </div>
                                 </td>
                             </tr>
