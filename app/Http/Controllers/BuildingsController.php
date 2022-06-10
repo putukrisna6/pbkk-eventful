@@ -72,7 +72,7 @@ class BuildingsController extends Controller
         $buildingType->type_id = $request->type_id;
         $buildingType->save();
 
-        return redirect()->route('buildings.index');
+        return redirect()->route('buildings.show', ['building' => $building]);
     }
 
     public function show(Building $building) {
