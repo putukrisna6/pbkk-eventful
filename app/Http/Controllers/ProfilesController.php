@@ -20,18 +20,9 @@ class ProfilesController extends Controller
     }
 
     public function profileUpdate(Request $request)
-    {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:8 '],
-            'phone' => ['required', 'string', 'max:255'],
-            'image' => ['required', 'image'],
-        ]);
-        
-        $user = User::find($id);
+    {        
+        $user = User::find(Auth::id());
         $user->name = $request->name;
-        $user->email = $request->email;
 
         $user->save();
         

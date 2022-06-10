@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->date('birthday');
-            $table->string('gender');
-            $table->string('phone');
-            $table->string('address');
-            $table->string('city');
-            $table->text('image');
+            $table->date('birthday')->nullable();;
+            $table->string('gender')->nullable();;
+            $table->string('phone')->nullable();;
+            $table->string('address')->nullable();;
+            $table->string('city')->nullable();;
+            $table->text('image')->nullable();;
             $table->timestamps();
         });
     }
@@ -33,10 +33,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('profiles', function (Blueprint $table) {
-            $table->dropForeign('profiles_user_id_foreign');
-                $table->dropColumn('user_id');
-        });
+
 
         Schema::dropIfExists('profiles');
     }
