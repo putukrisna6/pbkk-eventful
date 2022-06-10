@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\BuildingsController;
 use App\Http\Controllers\TypesController;
+use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\OptionsController;
 
 
@@ -62,8 +63,8 @@ Route::group(['prefix' => 'tenant', 'middleware' => 'auth'], function() {
     Route::group(['middleware' => 'checkRole:tenant'], function() {
         Route::get('/dashboard', [TenantController::class, 'dashboard'])->name('tenant.dashboard');
          Route::group(['prefix' => 'profile'], function() {
-            Route::get('/', [ProfileController::class, 'profile'])->name('tenant.profile');
-            // Route::get('/', [ProfileController::class, 'profileUpdate'])->name('tenant.profile');
+            Route::get('/', [ProfilesController::class, 'profile'])->name('tenant.profile');
+            Route::put('/', [ProfilesController::class, 'profileUpdate'])->name('tenant.profile.update');
         });
 
     });
