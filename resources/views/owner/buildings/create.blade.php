@@ -24,7 +24,7 @@
                         <div class="field-body">
                             <div class="field">
                                 <div class="control icons-left">
-                                    <input class="input" id="name" name="name" :value="old('email')" required
+                                    <input class="input" id="name" name="name" :value="old('name')" required
                                         autofocus type="text" placeholder="Building Name">
                                     <span class="icon left"><i class="mdi mdi-domain"></i></span>
                                 </div>

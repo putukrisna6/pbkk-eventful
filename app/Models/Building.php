@@ -40,7 +40,7 @@ class Building extends Model
     }
 
     public function options() {
-        return $this->hasMany(Option::class);
+        return $this->hasMany(Option::class)->orderBy('price', 'desc');
     }
 
     public function tasks() {

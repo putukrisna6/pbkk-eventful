@@ -14,9 +14,10 @@ class OwnerController extends Controller
     }
 
     public function approval() {
+        $buildingStatus = Building::$STATUS;
         $status = Task::$STATUS;
         $tasks = Task::where('user_id', Auth::id())->with('building')->get();
-        return view('owner.approval.index', compact('tasks', 'status'));
+        return view('owner.approval.index', compact('tasks', 'status', 'buildingStatus'));
     }
 
     public function approvalApply() {
