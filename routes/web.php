@@ -52,6 +52,9 @@ Route::group(['prefix' => 'owner', 'middleware' => 'auth'], function() {
 
         Route::get('/buildings/{building}/options', [OptionsController::class, 'optionsManage'])->name('owner.options.manage');
         Route::post('/buildings/{building}/options', [OptionsController::class, 'optionsAvailability'])->name('owner.options.availability');
+        Route::get('/buildings/{building}/options/create', [OptionsController::class, 'create'])->name('owner.options.create');
+        Route::post('/options', [OptionsController::class, 'store'])->name('owner.options.store');
+        Route::delete('/options', [OptionsController::class, 'destroy'])->name('owner.options.destroy');
     });
 });
 
