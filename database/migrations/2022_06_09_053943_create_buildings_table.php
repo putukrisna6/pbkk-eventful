@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('image');
             $table->float('latitude');
             $table->float('longitude');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

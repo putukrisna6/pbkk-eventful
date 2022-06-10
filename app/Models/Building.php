@@ -9,6 +9,14 @@ class Building extends Model
 {
     use HasFactory;
 
+    public static $STATUS = [
+        'INIT',
+        'PENDING',
+        'APPROVED',
+        'REJECTED',
+        'REVISION'
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,7 +30,8 @@ class Building extends Model
         'phone_number',
         'image',
         'latitude',
-        'longitude'
+        'longitude',
+        'status'
     ];
 
     public function user()
