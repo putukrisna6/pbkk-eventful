@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId('building_id');
             $table->foreignId('user_id');
             $table->string('total_price');
-            $table->datetime('order_date');
+            $table->tinyInteger('status')->default(0);
+            $table->mediumText('proof_of_payment')->nullable();
             $table->timestamps();
         });
     }

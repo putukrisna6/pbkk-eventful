@@ -25,6 +25,7 @@ use App\Http\Controllers\OptionsController;
 Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
 Route::get('/catalogue', [HomeController::class, 'catalogue'])->name('catalogue');
 Route::get('/detail/{building}', [HomeController::class, 'detail'])->name('detail');
+Route::post('/rent', [HomeController::class, 'rent'])->name('rent');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::group(['middleware' => 'checkRole:admin'], function() {

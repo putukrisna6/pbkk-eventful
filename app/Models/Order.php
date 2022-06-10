@@ -9,6 +9,13 @@ class Order extends Model
 {
     use HasFactory;
 
+    public static $STATUS = [
+        'INIT',
+        'PENDING',
+        'COMPLETED',
+        'CANCELED',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -18,7 +25,8 @@ class Order extends Model
         'building_id',
         'user_id',
         'total_price',
-        'order_date'
+        'status',
+        'proof_of_payment'
     ];
 
     public function building() {

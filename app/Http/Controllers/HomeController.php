@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Building;
 use App\Models\Option;
 use App\Models\Type;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -27,5 +28,18 @@ class HomeController extends Controller
         } else {
             return redirect()->route('welcome');
         }
+    }
+
+    public function rent(Request $request) {
+        $option = Option::find($request->option_id);
+
+        $order = new Order;
+        $order->building_id = $option->building_id;
+        $order->user_id = auth()->user()->id;
+        $order->total_price = $option->price;
+        $order->status = array_search('INIT', Order::$STATUS);
+        $order->save();
+
+        return 'order made';
     }
 }
