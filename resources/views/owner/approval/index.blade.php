@@ -33,7 +33,8 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Status</th>
+                            <th>Approval Status</th>
+                            <th>Building Status</th>
                             <th>Created</th>
                             <th>Updated</th>
                         </tr>
@@ -41,9 +42,9 @@
                     <tbody>
                         @foreach ($tasks as $task)
                             <tr>
-
                                 <td data-label="Name">{{ $task->building->name }}</td>
-                                <td data-label="Status">{{ $status[$task->status] }}</td>
+                                <td data-label="Approval Status">{{ $status[$task->status] }}</td>
+                                <td data-label="Building Status">{{ $buildingStatus[$task->building->status] }}</td>
                                 <td data-label="Created">
                                     <small class="text-gray-500">{{ $task->created_at }}</small>
                                 </td>
