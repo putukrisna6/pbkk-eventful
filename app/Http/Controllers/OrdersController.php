@@ -28,9 +28,25 @@ class OrdersController extends Controller
         }
 
         $order = Order::where('id', $request->id)->first();
+        $order->status = array_search('PENDING', Order::$STATUS);
         $order->proof_of_payment = base64_encode(file_get_contents($request->file('proof_of_payment')->path()));
         $order->save();
 
         return 'complete';
+    }
+
+    public function ordersQueue() {
+        $status = Order::$STATUS;
+        $orders = Order::where('status', array_search('PENDING', Order::$STATUS))->with('building', 'user')->get();
+        return view('admin.management.orders.index', compact('orders', 'status'));
+    }
+
+    public function ordersApprove(Request $request) {
+        $order = Order::find($request->order_id);
+        $order->status = array_search('PAID', Order::$STATUS);
+        $order->save();
+
+        session()->flash('success', 'Order payment confirmed successfully');
+        return redirect()->route('orders.queue');
     }
 }

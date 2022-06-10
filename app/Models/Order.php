@@ -12,6 +12,7 @@ class Order extends Model
     public static $STATUS = [
         'INIT',
         'PENDING',
+        'PAID',
         'COMPLETED',
         'CANCELED',
     ];
@@ -31,5 +32,9 @@ class Order extends Model
 
     public function building() {
         return $this->belongsTo(Building::class);
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 }
