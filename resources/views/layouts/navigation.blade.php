@@ -8,14 +8,17 @@
             </svg>
         </label>
         <input class="hidden" type="checkbox" id="menu-toggle" />
-
+        @auth
+        @if (Auth::user()->role == 'tenant')
         <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
             <nav>
                 <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-                    <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">About</a></li>
+                    <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Orders</a></li>
                 </ul>
             </nav>
         </div>
+        @endif
+        @endauth
 
         <div class="order-1 md:order-2">
             <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="/">
