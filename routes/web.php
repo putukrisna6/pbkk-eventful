@@ -59,14 +59,12 @@ Route::group(['prefix' => 'owner', 'middleware' => 'auth'], function() {
     });
 });
 
-Route::group(['prefix' => 'tenant', 'middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function() {
     Route::group(['middleware' => 'checkRole:tenant'], function() {
-        Route::get('/dashboard', [TenantController::class, 'dashboard'])->name('tenant.dashboard');
-         Route::group(['prefix' => 'profile'], function() {
+        Route::group(['prefix' => 'profile'], function() {
             Route::get('/', [ProfilesController::class, 'profile'])->name('tenant.profile');
             Route::put('/', [ProfilesController::class, 'profileUpdate'])->name('tenant.profile.update');
         });
-
     });
 });
 
