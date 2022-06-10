@@ -21,11 +21,16 @@ class OptionsController extends Controller
     }
 
     public function optionsAvailability(Request $request, $id) {
-        $building = Building::where('id', $id)->first();
+        $building = Building::where('id', $id)->with('options')->first();
 
         if ($building->user_id != Auth::id() || !$this->optionsAvailable($building)) {
             session()->flash('error', 'Unauthorized building access.');
             return redirect()->route('buildings.index');
+        }
+
+        if (!count($building->options)) {
+            session()->flash('error', 'Cannot set buildings without rent options to be available.');
+            return redirect()->route('owner.options.manage', ['building' => $building->id]);
         }
 
         (isset($request->status)) ? $building->status = $request->status : $building->status = 5;
