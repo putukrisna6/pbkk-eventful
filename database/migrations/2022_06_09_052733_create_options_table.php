@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('desc');
             $table->string('price');
-            $table->text('image');
+            $table->mediumText('image');
             $table->timestamps();
         });
     }
