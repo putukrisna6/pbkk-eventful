@@ -34,7 +34,7 @@ class OrdersController extends Controller
         $order->proof_of_payment = base64_encode(file_get_contents($request->file('proof_of_payment')->path()));
         $order->save();
 
-        return 'complete';
+        return redirect()->route('orders.tenants');
     }
 
     public function ordersQueue() {
