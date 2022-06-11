@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('text');
             $table->string('address');
             $table->string('phone');
-            $table->text('image');
+            $table->mediumText('image');
             $table->string('latitude');
             $table->string('longitude');
             $table->tinyInteger('status')->default(0);

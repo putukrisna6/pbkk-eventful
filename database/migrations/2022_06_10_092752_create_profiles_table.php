@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
-            $table->text('image')->nullable();
+            $table->mediumText('image')->nullable();
             $table->timestamps();
         });
     }
